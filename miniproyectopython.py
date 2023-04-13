@@ -99,7 +99,7 @@ def LAMBERTBATTIN(ro, r, dm, Dtsec):
     # ----------------------- Evaluate CUBIC ------------------
     b = 0.25*27.0*h2 / ((1.0+h1)**3 );
     if (b < -1.0): # reset the initial condition
-        xn = 1.0 - 2.0*l;
+        xn = 1.0 - 2.0*L;
     else:
       if (y1 > lim1):
         xn = xn * (lim1/y1);
@@ -121,12 +121,12 @@ def LAMBERTBATTIN(ro, r, dm, Dtsec):
     arg1 = math.sqrt( s / ( -2.0*a ) );
     arg2 = math.sqrt( ( s-chord ) / ( -2.0*a ) );
     # ------- Evaluate f and g functions --------
-    AlpH = 2.0 * asinh( arg1 );
-    BetH = 2.0 * asinh( arg2 );
+    AlpH = 2.0 * math.asinh( arg1 );
+    BetH = 2.0 * math.asinh( arg2 );
     DH   = AlpH - BetH;
-    F    = 1.0 - (a/magro)*(1.0 - cosh(DH) );
-    GDot = 1.0 - (a/magr) *(1.0 - cosh(DH) );
-    G    = Dtsec - math.sqrt(-a*a*a/mu)*(sinh(DH)-DH);
+    F    = 1.0 - (a/magro)*(1.0 - math.cosh(DH) );
+    GDot = 1.0 - (a/magr) *(1.0 - math.cosh(DH) );
+    G    = Dtsec - math.sqrt(-a*a*a/mu)*(math.sinh(DH)-DH);
   else:
     # ------------------------ Elliptical ---------------------
     if ( a > small ):
